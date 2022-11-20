@@ -1,0 +1,52 @@
+.box-outer{
+    padding: 10px;
+
+}
+
+.box-inner{
+    background: #F8F8FF;
+border-radius: 10px;
+padding: 20px;
+}
+
+.upi-field{
+    background: #FFFFFF;
+border: 2px dashed #2A2742;
+box-shadow: -8px -8px 16px rgba(42, 39, 66, 0.03), 8px 8px 16px rgba(42, 39, 66, 0.03);
+border-radius: 10px;
+}
+
+
+form .form-field {
+    
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid rgb(197, 194, 194);
+    outline: 0;
+    font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 0.9rem;
+line-height: 19px;
+color: #000000;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    border-radius: 0;
+    padding: 10px;
+    
+  
+  }
+
+  form .form-control:focus{
+    border-color: #ced4da;
+    box-shadow: none;
+  }
+
+.copy-button{
+
+}
+
+.copy-button:hover{
+    cursor: pointer;
+}
