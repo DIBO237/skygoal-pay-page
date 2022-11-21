@@ -52,8 +52,8 @@ function Home() {
                 width={50}
               />
               <div style={{ marginLeft: 5 }}>
-                <h5 className="">Bank Transfer</h5>
-                <p>{"(UPI/IMPS/RTGS/NEFT)"}</p>
+                <h5 className="" style={{fontSize:17}}>Bank Transfer</h5>
+                <p style={{fontSize:10}}>{"(UPI/IMPS/RTGS/NEFT)"}</p>
               </div>
             </div>
           </div>
@@ -79,8 +79,8 @@ function Home() {
                 width={50}
               />
               <div style={{ marginLeft: 5 }}>
-                <h5 className="">Online</h5>
-                <p>{"(Credit card/Debit card/Net banking/Others)"}</p>
+                <h5 className="" style={{fontSize:17}}>Online</h5>
+                <p style={{fontSize:10}}>(Credit card/Debit card/Net <br></br> banking/Others)</p>
               </div>
             </div>
           </div>
