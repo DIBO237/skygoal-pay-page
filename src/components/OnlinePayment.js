@@ -7,11 +7,14 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { success_notify, fail, fail_notify } from "../utils/Utilfunctions";
 import { RWebShare } from "react-web-share";
 import _ from "lodash";
+import Spinner from 'react-bootstrap/Spinner';
+
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 export default function OnlinePayment() {
+  const [isLoading,setLoading]=useState(false)
   const formEl = useRef();
   const [urls, setURl] = useState("");
 
@@ -37,12 +40,14 @@ export default function OnlinePayment() {
       id: 0,
       name:"cashfree",
       url:"http://localhost:4000/cashfree-pay",
+      disabled:true,
       imgUrl: "assets/cash.svg",
     },
     {
       id: 1,
       name:"Payu",
       url:"http://localhost:4000/payu-pay",
+      disabled:false,
       imgUrl: "assets/cash1.svg",
     },
   ];
@@ -84,10 +89,12 @@ export default function OnlinePayment() {
 
     
     try{
+      setLoading(true)
       formEl.current.custDetails.value = JSON.stringify(datas);
       formEl.current && formEl.current.submit();
+      //setLoading(false)
     }catch(err){
-
+      setLoading(false)
        fail_notify("Something went wrong try again later",4000)
     }
     
@@ -118,7 +125,7 @@ export default function OnlinePayment() {
   };
 
   useEffect(() => {
-    upicodegen("skygoalofficial@icici", "SKYGOAL INNOVA TECHNOLOGIES PVT LTD");
+    
 
     console.log(selectBank);
   }, [selectBank]);
@@ -281,7 +288,7 @@ export default function OnlinePayment() {
                   <Form>
                     {/* SWITHABLE FORM DATA BANK */}
                     {bank.map((data) => (
-                      <Form.Check className="mb-3" type={"radio"} name="group1">
+                      <Form.Check className="mb-3" type={"radio"} name="group1"  >
                         <div
                           className=""
                           style={{ display: "flex", justifyContent: "" }}
@@ -292,6 +299,7 @@ export default function OnlinePayment() {
                             onChange={() => handler(data.id)}
                             checked={selectBank === data.id}
                             type={"radio"}
+                            disabled ={data.disabled}
                           />
                           <div
                             className=""
@@ -308,19 +316,36 @@ export default function OnlinePayment() {
                               width={70}
                             />
                           </div>
+
+                         {data.disabled ?<small style={{color:"red"}}>* Temporarily unavailable.</small>:"" } 
                         </div>
                       </Form.Check>
                     ))}
 
                     <div className="mt-5">
-                      <Button
-                        className={amount > 0 ? "py-2" : "disabled py-2"}
+                      {
+                        !isLoading ?  <Button
+                        className={amount > 0 ? "py-2" : "disabled py-2"  }
                         onClick={(e) => submitPay(e)}
                         style={{ width: "100%", backgroundColor: "#2A2742" }}
+                        disabled = {bankDetails.disabled}
                       >
                         PAY &#8377;
                         {amount ? parseInt(convienceFee) + parseInt(amount) : 0}
-                      </Button>
+                      </Button> 
+                      : 
+                       <Button className="py-2" style={{ width: "100%", backgroundColor: "#2A2742" }} disabled>
+                                  <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                  />
+                                  Loading please wait...
+                                </Button>
+                      }
+                    
                     </div>
                   </Form>
                 </div>
