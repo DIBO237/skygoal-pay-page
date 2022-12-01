@@ -17,7 +17,14 @@ export default function OnlinePayment() {
   const [isLoading,setLoading]=useState(false)
   const formEl = useRef();
   const [urls, setURl] = useState("");
+  //SWITCH ON TO DEV MODE FROM HERE
+  const dev = true
 
+  let host_url = "https://payapi.skygoaltech.com"
+
+  if (dev){
+     host_url = "http://localhost:4000"
+  }
   const generateURL = (upi, name) => {
     return `upi://pay?pa=${upi}&pn=${name}&cu=INR`;
   };
@@ -39,14 +46,14 @@ export default function OnlinePayment() {
     {
       id: 0,
       name:"cashfree",
-      url:"http://localhost:4000/cashfree-pay",
-      disabled:true,
+      url:`${host_url}/cashfree-pay`,
+      disabled:false,
       imgUrl: "assets/cash.svg",
     },
     {
       id: 1,
       name:"Payu",
-      url:"http://localhost:4000/payu-pay",
+      url:`${host_url}/payu-pay`,
       disabled:false,
       imgUrl: "assets/cash1.svg",
     },
