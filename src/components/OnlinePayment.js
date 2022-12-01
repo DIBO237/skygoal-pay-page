@@ -18,7 +18,7 @@ export default function OnlinePayment() {
   const formEl = useRef();
   const [urls, setURl] = useState("");
   //SWITCH ON TO DEV MODE FROM HERE
-  const dev = true
+  const dev = false
 
   let host_url = "https://payapi.skygoaltech.com"
 
