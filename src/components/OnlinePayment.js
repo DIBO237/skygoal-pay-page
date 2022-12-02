@@ -90,7 +90,9 @@ export default function OnlinePayment() {
     }
     let datas = {
      remarks: remarks,
-     custGst:gst
+     custGst:gst,
+     amount:amount,
+     convienceFee:convienceFee
       
     };
 
@@ -376,6 +378,7 @@ export default function OnlinePayment() {
             <input type="text" name="amount" value={amount ? parseInt(convienceFee )+ parseInt(amount): 1}></input>
             <input type="text" name="gatewaytype" value={bankDetails.name}></input>
             <input type="text" name="custDetails" value={""}></input>
+            <input type="text" name="actualAmount" value={amount}></input>
           </Form>
       
       </div>

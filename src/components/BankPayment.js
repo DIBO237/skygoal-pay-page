@@ -35,7 +35,7 @@ export default function BankPayment() {
       ifsc: "ICIC0001803",
       branch: "ICICI BANK LTD, ELURU ROAD VIJAYAWADA",
       gstNum: "36ABACS8072J1Z0",
-      imgUrl: "assets/thunder 2.svg",
+      imgUrl: "assets/thunder 3.svg",
     },
     {
       id: 1,
@@ -75,17 +75,22 @@ export default function BankPayment() {
   return (
     <div>
       <div className="px-3 py-3">
+        <div style={{maxWidth:500}}>
+
+       
         <Form>
           {/* SWITHABLE FORM DATA BANK */}
+           <div className="row">
           {bank.map((data) => (
-            <Form.Check inline type={"radio"} name="group1">
+            <Col>
+              <Form.Check inline  type={"radio"} name="group1">
               <div
                 className=""
                 style={{ display: "flex", justifyContent: "space-around" }}
               >
                 <Form.Check.Input
                   value="bank"
-                  className="mt-3"
+                  className="mt-2"
                   onChange={() => handler(data.id)}
                   checked={selectBank === data.id}
                   type={"radio"}
@@ -95,8 +100,10 @@ export default function BankPayment() {
                 </div>
               </div>
             </Form.Check>
-          ))}
-        </Form>
+            </Col>
+          
+          ))}</div>
+        </Form> </div>
       </div>
       <Row>
         <Col
