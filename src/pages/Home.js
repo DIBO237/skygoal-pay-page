@@ -60,12 +60,14 @@ function Home() {
             <div style={{ display: "flex", marginLeft: 10 }}>
               <img
                 className="img-fluid"
-                src="assets/cashless-payment.svg"
+                src="assets/mobile-banking.svg"
+                
                 width={50}
               />
               <div style={{ marginLeft: 5 }}>
                 <h5 className="" style={{fontSize:17}}>Bank Transfer</h5>
-                <p style={{fontSize:10}}>{"(UPI/IMPS/RTGS/NEFT)"}</p>
+                <p style={{fontSize:10}}>(Credit card/Debit card/Net <br></br> banking/Others)</p>
+                
               </div>
             </div>
           </div></OverlayTrigger>
@@ -91,13 +93,13 @@ function Home() {
             />
             <div style={{ display: "flex", marginLeft: 10 }}>
               <img
-                src="assets/mobile-banking.svg"
+                src="assets/cashless-payment.svg"
                 className="img-fluid"
-                width={50}
+                width={52}
               />
               <div style={{ marginLeft: 5 }}>
                 <h5 className="" style={{fontSize:17}}>Online</h5>
-                <p style={{fontSize:10}}>(Credit card/Debit card/Net <br></br> banking/Others)</p>
+                <p style={{fontSize:10}}>{"(UPI/IMPS/RTGS/NEFT)"}</p>
               </div>
             </div>
           </div></OverlayTrigger>
