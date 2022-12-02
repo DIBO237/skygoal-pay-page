@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form,OverlayTrigger,Tooltip } from "react-bootstrap";
 import "../css/Home.css";
 
 function Home() {
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {props}
+    </Tooltip>
+  );
   const [item, setItem] = useState("bank");
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -33,7 +39,13 @@ function Home() {
           justifyContent: "space-around",
         }}
       >
+       
         <Form.Check inline type={"radio"} name="group1">
+        <OverlayTrigger
+      placement="top"
+      delay={{ show: 250, hide: 400 }}
+      overlay={renderTooltip("0% Convinence fees")}
+    >
           <div
             className=""
             style={{ display: "flex", justifyContent: "space-around" }}
@@ -56,10 +68,15 @@ function Home() {
                 <p style={{fontSize:10}}>{"(UPI/IMPS/RTGS/NEFT)"}</p>
               </div>
             </div>
-          </div>
+          </div></OverlayTrigger>
         </Form.Check>
 
         <Form.Check inline type={"radio"} name="group1">
+        <OverlayTrigger
+      placement="top"
+      delay={{ show: 250, hide: 400 }}
+      overlay={renderTooltip("2% Convinence fees")}
+    >
           <div
             className=""
             style={{ display: "inline-flex", justifyContent: "space-around" }}
@@ -83,7 +100,7 @@ function Home() {
                 <p style={{fontSize:10}}>(Credit card/Debit card/Net <br></br> banking/Others)</p>
               </div>
             </div>
-          </div>
+          </div></OverlayTrigger>
           <Form.Control.Feedback type="valid">
             You did it!
           </Form.Control.Feedback>
