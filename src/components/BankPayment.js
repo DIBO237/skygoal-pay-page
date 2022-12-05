@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { Col, Button, Row, Form, InputGroup } from "react-bootstrap";
 import "../css/bank.css";
 import QRCode from "qrcode";
 import { FaCopy, FaShareAlt } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { success_notify, fail } from "../utils/Utilfunctions";
+import { success_notify, fail,handleShare } from "../utils/Utilfunctions";
 import { RWebShare } from "react-web-share";
 
+
+
 export default function BankPayment() {
+  const imageRef = useRef(null);
   const [urls, setURl] = useState("");
 
   const generateURL = (upi, name) => {
@@ -133,7 +136,7 @@ export default function BankPayment() {
                   <FaShareAlt
                   className="float-right "
                   size={26}
-                  style={{ marginLeft: 100 }}
+                  style={{ marginLeft: 100,cursor:"pointer" }}
                 />
                 </RWebShare>
 
@@ -312,9 +315,14 @@ export default function BankPayment() {
           xs={12}
         >
           <div className="box-outer">
-            <div className="box-inner">
+            <div className="box-inner" ref={imageRef}>
               <div className="text-center mb-3">
-                <h5>Scan & Pay Using this Payments App</h5>
+                <h5>Scan & Pay Using this Payments App <span onClick={()=>handleShare(imageRef)} ><FaShareAlt
+                  className="float-right "
+                  size={23}
+                  style={{cursor:"pointer"}}
+                /></span></h5>
+                
               </div>
               <div className="text-center mb-5">
                 <img src="assets/111.svg" />

@@ -85,9 +85,25 @@ export default function OnlinePayment() {
     if (_.isEmpty(email)) {
       return fail_notify("Email is required !", 3000);
     }
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) !== true) {
+      return fail_notify("Email is Invalid !", 3000);
+    }
+
+    
     if (_.isEmpty(amount)) {
       return fail_notify("Please Enter an amount", 3000);
     }
+
+    if(amount > 500000){
+      return fail_notify("Amount cannot exceed above 5 Lakhs", 3000);
+    }
+
+    // if(amount > 100){
+    //   return fail_notify("Minimum 100 Rs is allowed", 3000);
+    // }
+
+
     let datas = {
      remarks: remarks,
      custGst:gst,
