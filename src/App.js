@@ -19,7 +19,7 @@ function App() {
        
         <Route path="/" element={<Home />}>
        
-          <Route path="bank" element={<BankPayment />} />
+          <Route path="bank"  element={<BankPayment />} />
           <Route path="onlinepayment" element={<OnlinePayment />} />
          
         </Route>
@@ -31,3 +31,5 @@ function App() {
 }
 
 export default App;
+
+
