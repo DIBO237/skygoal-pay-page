@@ -66,7 +66,8 @@ function Home() {
               />
               <div style={{ marginLeft: 5 }}>
                 <h5 className="" style={{fontSize:17}}>Bank Transfer</h5>
-                <p style={{fontSize:10}}>(Credit card/Debit card/Net <br></br> banking/Others)</p>
+                <p style={{fontSize:10}}>{"(UPI/IMPS/RTGS/NEFT)"}</p>
+                
                 
               </div>
             </div>
@@ -99,7 +100,7 @@ function Home() {
               />
               <div style={{ marginLeft: 5 }}>
                 <h5 className="" style={{fontSize:17}}>Online</h5>
-                <p style={{fontSize:10}}>{"(UPI/IMPS/RTGS/NEFT)"}</p>
+                <p style={{fontSize:10}}>(Credit card/Debit card/Net <br></br> banking/Others)</p>
               </div>
             </div>
           </div></OverlayTrigger>
