@@ -47,7 +47,7 @@ export default function OnlinePayment() {
       id: 0,
       name:"cashfree",
       url:`${host_url}/cashfree-pay`,
-      disabled:true,
+      disabled:false,
       imgUrl: "assets/cash.svg",
     },
     {
