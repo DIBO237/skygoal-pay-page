@@ -43,19 +43,20 @@ export default function OnlinePayment() {
   }
 
   const bank = [
+   
     {
       id: 0,
-      name:"cashfree",
-      url:`${host_url}/cashfree-pay`,
-      disabled:false,
-      imgUrl: "assets/cash.svg",
-    },
-    {
-      id: 1,
       name:"Payu",
       url:`${host_url}/payu-pay`,
       disabled:false,
       imgUrl: "assets/cash1.svg",
+    },
+    {
+      id: 1,
+      name:"cashfree",
+      url:`${host_url}/cashfree-pay`,
+      disabled:true,
+      imgUrl: "assets/cash.svg",
     },
   ];
 
