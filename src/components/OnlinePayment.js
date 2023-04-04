@@ -48,7 +48,7 @@ export default function OnlinePayment() {
       id: 0,
       name:"Payu",
       url:`${host_url}/payu-pay`,
-      disabled:false,
+      disabled:true,
       imgUrl: "assets/cash1.svg",
     },
     {
